@@ -62,7 +62,8 @@ export default ({
   set: setDefault,
   metadataFormat = metadataFormats.string,
   retrieveAll = true,
-  filterDeleted = false
+  filterDeleted = false,
+  fetchOptions = {}
 }) => {
   const debug = createDebugLogger('@natlibfi/oai-pmh-client');
   const formatMetadata = createFormatter();
@@ -98,7 +99,7 @@ export default ({
       async function processRequest(parameters) {
         const url = generateUrl(parameters);
         debug(`Sending request: ${url.toString()}`);
-        const response = await fetch(url);
+        const response = await fetch(url, fetchOptions);
 
         if (response.status === httpStatus.OK) {
           const {records, error, resumptionToken} = await parsePayload(response);

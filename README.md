@@ -38,6 +38,7 @@ client.listRecords({resumptionToken})
 - **metadataFormat**: Format of the metadata argument in **record** event. Defaults to **string** (See export **metadataFormats**)
 - **retrieveAll**: Whether to retrieve all records or just from the first response. If **false**, the **end** event returns the resumptionToken.
 - **filterDeleted**: Whether to filter out deleted records. Defaults to **false**.
+- **fetchOptions**: Extra `fetch` options. Defaults to `{}`. See https://github.com/node-fetch/node-fetch#options
 ## listRecords options:
 - **metadataPrefix**: Override default metadata prefix.
 - **set**: Override default set.
